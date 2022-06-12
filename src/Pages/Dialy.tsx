@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 
-function Comic(): ReactElement {
+function Dialy(): ReactElement {
   return (
     <>
       <main>
@@ -11,4 +11,4 @@ function Comic(): ReactElement {
   );
 }
 
-export default Comic;
+export default Dialy;

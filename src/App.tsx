@@ -11,6 +11,10 @@ import Contact from "./Pages/Contact";
 import Tech from "./Pages/Tech";
 import "./App.css";
 import SideMenu from "./Components/SideMenu";
+import Admin from "./Pages/Admin";
+import PrivateRoute from "./Util/PrivateRoute";
+import LoginPage from "./Pages/Login";
+import { AuthProvider } from "./Scripts/Auth";
 
 function App() {
   return (
@@ -21,16 +25,27 @@ function App() {
           <SideMenu width={200} />
         </Box>
         <Box component="main" sx={{ flexGrow: 1, p: 3, ml: "200px" }}>
-          <Routes>
-            <Route path="/" element={<Top />} />
-            <Route path="about" element={<About />} />
-            <Route path="novel" element={<Novel />} />
-            <Route path="illust" element={<Illust />} />
-            <Route path="comic" element={<Comic />} />
-            <Route path="dialy" element={<Dialy />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="tech" element={<Tech />} />
-          </Routes>
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<Top />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/novel" element={<Novel />} />
+              <Route path="/illust" element={<Illust />} />
+              <Route path="/comic" element={<Comic />} />
+              <Route path="/dialy" element={<Dialy />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/tech" element={<Tech />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/admin"
+                element={
+                  <PrivateRoute>
+                    <Admin />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </AuthProvider>
         </Box>
       </body>
     </>

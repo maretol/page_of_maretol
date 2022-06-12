@@ -21,6 +21,8 @@ function SideMenu(props: { width: number }): ReactElement {
     { key: "contact", link: "/contact", value: "Contact" },
   ];
 
+  const menu4 = [{ key: "admin", link: "/admin", value: "Admin" }];
+
   function makeListItem(item: {
     key: string;
     link: string;
@@ -54,6 +56,8 @@ function SideMenu(props: { width: number }): ReactElement {
       <List key="menu2">{menu2.map((item) => makeListItem(item))}</List>
       <Divider />
       <List key="menu3">{menu3.map((item) => makeListItem(item))}</List>
+      <Divider />
+      <List key="menu4">{menu4.map((item) => makeListItem(item))}</List>
     </Drawer>
   );
 }
